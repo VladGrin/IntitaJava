@@ -6,6 +6,11 @@ public class Customer {
     private String size;
     private Clothing[] items;
 
+    public Customer(String name, int measurement) {
+        this.name = name;
+        setSize(measurement);
+    }
+
     public double getTotalClothingCost() {
         double total = 0.0;
         for (Clothing item : items) {
@@ -36,5 +41,33 @@ public class Customer {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public void setSize(int measurement) {
+        switch (measurement) {
+            case 1:
+            case 2:
+            case 3:
+                size = "S";
+                break;
+            case 4:
+            case 5:
+            case 6:
+                setSize("M");
+                break;
+            case 7:
+            case 8:
+            case 9:
+                setSize("L");
+                break;
+            default:
+                setSize("XL");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "'name='" + name + '\'' +
+                ", size='" + size ;
     }
 }
