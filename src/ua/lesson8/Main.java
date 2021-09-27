@@ -15,6 +15,8 @@ public class Main {
         System.out.println(CRUDOperation.name);
         CRUDOperation operation = new UserCRUDOperation();
         operation.save(null);
+        System.gc();
+        Runtime.getRuntime().gc();
     }
 
     public static void printAlias(Animal animal){
